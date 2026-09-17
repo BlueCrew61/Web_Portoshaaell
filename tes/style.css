@@ -322,7 +322,6 @@ section {
     font-style: italic;
 }
 
-
 /* =========================
    ABOUT
 ========================= */
@@ -331,13 +330,111 @@ section {
     background: #f9dce4;
 
     display: grid;
-    grid-template-columns: 1fr 2fr;
+
+    /* KIRI = FOTO | KANAN = TEXT */
+    grid-template-columns: 0.9fr 1.1fr;
+
+    align-items: center;
 
     gap: 80px;
 }
 
+
+/* =========================
+   ABOUT IMAGE
+========================= */
+
+.about-image {
+    position: relative;
+
+    width: 100%;
+    height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-image img {
+    width: 300px;
+    height: 400px;
+
+    object-fit: cover;
+
+    border-radius: 150px 150px 20px 20px;
+
+    position: relative;
+    z-index: 2;
+
+    box-shadow: 0 25px 50px rgba(80, 40, 50, 0.15);
+
+    transition: 0.5s ease;
+}
+
+
+/* Lingkaran pink di belakang foto */
+
+.about-decoration {
+    position: absolute;
+
+    width: 340px;
+    height: 340px;
+
+    border-radius: 50%;
+
+    background: #f4a3b9;
+
+    z-index: 1;
+
+    transition: 0.5s ease;
+}
+
+
+/* Badge */
+
+.about-badge {
+    position: absolute;
+
+    right: 20px;
+    bottom: 45px;
+
+    z-index: 3;
+
+    background: #282126;
+
+    color: white;
+
+    padding: 13px 18px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    box-shadow: 0 15px 30px rgba(40, 33, 38, 0.2);
+
+    animation: floating 3s ease-in-out infinite;
+}
+
+
+/* Hover */
+
+.about-image:hover img {
+    transform: translateY(-10px) rotate(-2deg);
+
+    box-shadow: 0 35px 70px rgba(80, 40, 50, 0.22);
+}
+
+.about-image:hover .about-decoration {
+    transform: scale(1.08) rotate(8deg);
+}
+
+
+/* =========================
+   ABOUT CONTENT
+========================= */
+
 .about-content {
-    max-width: 700px;
+    max-width: 650px;
 }
 
 .about-content h2 {
@@ -352,11 +449,12 @@ section {
 
 .about-content h2 span {
     color: #ed7395;
+
     font-style: italic;
 }
 
 .about-content p {
-    max-width: 650px;
+    max-width: 600px;
 
     color: #695e63;
 
@@ -365,6 +463,112 @@ section {
     line-height: 1.9;
 
     margin-bottom: 20px;
+}
+
+
+/* =========================
+   ABOUT RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .about {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .about-image {
+        height: 450px;
+    }
+
+    .about-content {
+        max-width: 100%;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .about-image {
+        height: 400px;
+    }
+
+    .about-image img {
+        width: 250px;
+        height: 340px;
+    }
+
+    .about-decoration {
+        width: 290px;
+        height: 290px;
+    }
+
+    .about-badge {
+        right: 5px;
+        bottom: 25px;
+    }
+
+}
+
+/* Badge */
+
+.about-badge {
+    position: absolute;
+
+    right: 10px;
+    bottom: 55px;
+
+    z-index: 3;
+
+    background: #282126;
+
+    color: white;
+
+    padding: 15px 20px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    box-shadow: 0 15px 30px rgba(40, 33, 38, 0.2);
+
+    animation: floating 3s ease-in-out infinite;
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .about-image {
+        margin-bottom: 40px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .about-image {
+        height: 430px;
+    }
+
+    .about-image img {
+        width: 260px;
+        height: 350px;
+    }
+
+    .about-decoration {
+        width: 290px;
+        height: 290px;
+    }
+
+    .about-badge {
+        right: 15px;
+        bottom: 30px;
+    }
+
 }
 
 
